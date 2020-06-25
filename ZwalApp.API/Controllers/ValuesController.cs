@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using ZwalApp.API.Data;
 
 namespace ZwalApp.API.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class ValuesController : ControllerBase
@@ -24,7 +26,7 @@ namespace ZwalApp.API.Controllers
            var Values= _context.Values.ToList();
            return Ok(Values);
         }
-
+       [AllowAnonymous]
         // GET api/values/5
         [HttpGet("{id}")]
         public ActionResult  Get(int id)
