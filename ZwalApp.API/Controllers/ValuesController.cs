@@ -20,6 +20,7 @@ namespace ZwalApp.API.Controllers
             _context = context;
 
         }
+        [AllowAnonymous]
         [HttpGet]
         public ActionResult  Get()
         {
